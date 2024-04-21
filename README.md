@@ -15,19 +15,16 @@ Advanced Challenges: More complex projects that integrate multiple aspects of Py
 To get started with this portfolio, you can clone the repository to your local machine:
 
 ```bash
-Copy code
 git clone https://github.com/yourusername/py-training.git
 Navigate into the project directory:
 ```
 
 ```bash
-Copy code
 cd py-training
 Install the required dependencies (if any):
 ```
 
 ```bash
-Copy code
 pip install -r requirements.txt
 Run the scripts or applications as described in their specific folders.
 ```
