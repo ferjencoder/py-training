@@ -64,20 +64,37 @@ print(f"El ID del usuario creado es: {usuario_id}")
 
 
 # <<< Encontrar user buscando por username y password
-def encontrar_usuario_por_username(db, username_buscado, password_buscado):
+def login_usuario(db, username_buscado, password_buscado):
+    usuario_encontrado = False  # Flag para verificar si el usuario fue encontrado
+
     for user_id, user_info in db.items():
-        if (
-            user_info["username"] == username_buscado
-            and user_info["password"] == password_buscado
-        ):
-            return user_id  # Retorna el ID del usuario
-    return None  # Retorna None si no se encuentra el usuario
+        if user_info["username"] == username_buscado:
+            usuario_encontrado = True  # Marcar que se encontró el usuario
+            if user_info["password"] == password_buscado:
+                return user_id  # Login exitoso
+            else:
+                print(
+                    "Error: Contraseña incorrecta."
+                )  # Error específico para contraseña incorrecta
+                return None
+
+    if not usuario_encontrado:
+        print(
+            "Error: Nombre de usuario no encontrado."
+        )  # Error específico para usuario no encontrado
+
+    return (
+        None  # Retorna None si no se encuentra el usuario o la contraseña es incorrecta
+    )
 
 
-# TEST: Encontrar un usuario existente
-username_buscado = input("Login usuario: Ingrese su nombre de usuario para verificar: ")
-password_buscado = input("Login usuario: Ingrese su contraseña para verificar: ")
-usuario_id = encontrar_usuario_por_username(db, username_buscado, password_buscado)
+# TEST: Login usuario
+username_buscado = input("Ingrese su nombre de usuario para verificar: ")
+password_buscado = input("Ingrese su contraseña para verificar: ")
+
+usuario_id = login_usuario(db, username_buscado, password_buscado)
+if usuario_id:
+    print(f"Login exitoso. ID del usuario: {usuario_id}")
 
 
 # <<< Mostrar los primeros 5 users
@@ -96,10 +113,6 @@ def mostrar_primeros_cinco_usuarios(db):
 # TEST: Mostrar los primeros 5 users
 mostrar_primeros_cinco_usuarios(db)
 
-if usuario_id:
-    print(f"El ID del usuario es: {usuario_id}")
-else:
-    print(f"Usuario {username_buscado} no encontrado")
 
 ##<<< Expandir funcionalidades
 # Eliminar usuario
