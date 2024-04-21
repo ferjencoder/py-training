@@ -22,9 +22,6 @@ git clone https://github.com/yourusername/py-training.git
 cd py-training
 ```
 
-```bash
-pip install -r requirements.txt
-```
 ---
 ## Contributing
 Feel free to fork this repository and submit pull requests. You can also open issues if you find errors or have suggestions.
