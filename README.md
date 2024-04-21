@@ -16,17 +16,14 @@ To get started with this portfolio, you can clone the repository to your local m
 
 ```bash
 git clone https://github.com/yourusername/py-training.git
-Navigate into the project directory:
 ```
 
 ```bash
 cd py-training
-Install the required dependencies (if any):
 ```
 
 ```bash
 pip install -r requirements.txt
-Run the scripts or applications as described in their specific folders.
 ```
 ---
 ## Contributing
